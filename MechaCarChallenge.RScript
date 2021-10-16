@@ -4,3 +4,7 @@ MechaCarMPG <- read.csv('UNCC_Bootcamp/15_module/MechaCar_Statistical_Analysis/M
 
 mod <- lm(mpg ~ vehicle_length + vehicle_weight + spoiler_angle + ground_clearance + AWD + mpg, MechaCarMPG)
 summary(mod)
+
+Suspension_Coil <- read.csv('UNCC_Bootcamp/15_module/MechaCar_Statistical_Analysis/Suspension_Coil.csv',stringsAsFactors = F)
+Total_Summary <- summarise(Suspension_Coil,mean(PSI),median(PSI),var(PSI),sd(PSI))
+Lot_Summary <- Suspension_Coil %>% group_by(Manufacturing_Lot) %>% summarise(mean(PSI),median(PSI),var(PSI),sd(PSI))
