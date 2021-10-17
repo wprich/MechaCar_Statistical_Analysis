@@ -8,3 +8,11 @@ summary(mod)
 Suspension_Coil <- read.csv('UNCC_Bootcamp/15_module/MechaCar_Statistical_Analysis/Suspension_Coil.csv',stringsAsFactors = F)
 Total_Summary <- summarise(Suspension_Coil,mean(PSI),median(PSI),var(PSI),sd(PSI))
 Lot_Summary <- Suspension_Coil %>% group_by(Manufacturing_Lot) %>% summarise(mean(PSI),median(PSI),var(PSI),sd(PSI))
+
+t.test(Suspension_Coil$PSI,mu=1500)
+
+t.test(subset(Suspension_Coil$PSI,Suspension_Coil$Manufacturing_Lot == 'Lot1'),mu=1500)
+
+t.test(subset(Suspension_Coil$PSI,Suspension_Coil$Manufacturing_Lot == 'Lot2'),mu=1500)
+
+t.test(subset(Suspension_Coil$PSI,Suspension_Coil$Manufacturing_Lot == 'Lot3'),mu=1500)
